@@ -9,31 +9,27 @@
         <p> 
             This is my first html page with some 3d objects. 
         </p> 
-        <x3d width='600px' height='400px'> 
-            <scene> 
-                <shape> 
-                    <appearance> 
-                    <material diffuseColor='1 0 0'></material> 
-                    </appearance> 
-                    <box></box> 
-                </shape> 
-                <transform translation='-3 0 0'> 
-                <shape> 
-                    <appearance> 
-                    <material diffuseColor='0 1 0'></material> 
-                    </appearance> 
-                    <cone></cone> 
-                </shape> 
-                </transform> 
-                <transform translation='3 0 0'> 
-                <shape> 
-                    <appearance> 
-                    <material diffuseColor='0 0 1'></material> 
-                    </appearance> 
-                    <sphere></sphere> 
-                </shape> 
-                </transform> 
-            </scene> 
+        <x3d width='1200px' height='800px'> 
+            <Scene DEF='scene'>
+
+                    <Transform DEF='NES_Body' translation='0 0 0'>
+                        <Shape>
+                            <Appearance>
+                                <Material diffuseColor='0.75 0.75 0.75' />
+                            </Appearance>
+                            <Box size='12.5 5.5 1.7'/>
+                        </Shape>
+                    </Transform>
+
+                    <Transform DEF='Button_A' translation='0 0 1' rotation='1 0 0 -1.6'>
+                            <Shape>
+                            <Appearance>
+                                    <Material diffuseColor='1 0 0' />
+                            </Appearance>
+                            <Cylinder height='.2' radius='0.6'/>
+                            </Shape>
+                        </Transform>
+            </Scene>
         </x3d> 
     </body> 
 </html>           
