@@ -3,7 +3,18 @@
 <head>
     <title>My first X3DOM page</title>
     <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
-    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
+	<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'>
+	<script> 
+		function clickButton()
+		{
+		   if(document.getElementById("Button_A").getAttribute('translation')=="4.0 -1 .9")
+			  document.getElementById("Button_A").setAttribute('translation', '4.0 -1 0.8');
+		   else
+			  document.getElementById("Button_A").setAttribute('translation', '4.0 -1 .9');
+		}
+   </script> 
+    </link>
+
 </head>
 
 <body>
@@ -32,12 +43,13 @@
                 </Shape>
             </Transform>
 
-            <Transform DEF='Button_A' translation='4.0 -1 .9' rotation='1 0 0 -1.6'>
-                <Shape>
-                    <Appearance>
-                        <Material diffuseColor='1 0 0' />
-                    </Appearance>
-                    <Cylinder height='.2' radius='0.6' />
+            <Transform id='Button_A' translation='4.0 -1 .9' rotation='1 0 0 -1.6'>
+                <Shape onclick="clickButton()">
+                        <Appearance>
+                            <Material diffuseColor='1 0 0' />
+                        </Appearance>
+                        <Cylinder height='.2' radius='0.6' />
+                   
                 </Shape>
             </Transform>
 
@@ -58,6 +70,7 @@
                     <Box size='1.1 .2 3' />
                 </Shape>
             </Transform>
+
         </Scene>
     </x3d>
 </body>
