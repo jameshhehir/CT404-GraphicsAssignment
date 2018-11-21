@@ -1,88 +1,87 @@
 <html>
 
 <head>
-    <title>My first X3DOM page</title>
-    <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
+	<title>My first X3DOM page</title>
+	<script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
 	<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'>
-	<script> 
-		function clickButton()
-		{
-		   if(document.getElementById("Button_A").getAttribute('translation')=="4.0 -1 .9")
-			  document.getElementById("Button_A").setAttribute('translation', '4.0 -1 0.8');
-		   else
-			  document.getElementById("Button_A").setAttribute('translation', '4.0 -1 .9');
+	<script>
+		function clickButton() {
+			if (document.getElementById("Button_A").getAttribute('translation') == "4.0 -1 .9")
+				document.getElementById("Button_A").setAttribute('translation', '4.0 -1 0.8');
+			else
+				document.getElementById("Button_A").setAttribute('translation', '4.0 -1 .9');
 		}
-   </script> 
-    </link>
+	</script>
+	</link>
 
 </head>
 
 <body>
-    <h1>NES Controller</h1>
-    <p>
-        This is an interactive NES Controller!
-    </p>
-    <x3d width='1000px' height='800px'>
-        <Scene DEF='scene'>
-				<Viewpoint id="front" position="0 0 25" orientation="0 0 0 0" description="camera"></Viewpoint>
-				<Viewpoint id="left" position="-40 0 0" orientation="0 -1 0 2" description="camera"></Viewpoint>
-				<Viewpoint id="right" position="40 0 0" orientation="0 1 0 2" description="camera"></Viewpoint>
+	<h1>NES Controller</h1>
+	<p>
+		This is an interactive NES Controller!
+	</p>
+	<x3d width='1000px' height='800px'>
+		<Scene DEF='scene'>
+			<Viewpoint id="front" position="0 0 25" orientation="0 0 0 0" description="camera"></Viewpoint>
+			<Viewpoint id="left" position="-40 0 0" orientation="0 -1 0 2" description="camera"></Viewpoint>
+			<Viewpoint id="right" position="40 0 0" orientation="0 1 0 2" description="camera"></Viewpoint>
 			<Group>
-            <Transform DEF='NES_Body' translation='0 0 0'>
-                <Shape>
-                    <Appearance>
-                        <Material diffuseColor='0.75 0.75 0.75' />
-                    </Appearance>
-                    <Box size='12.5 5.5 1.7' />
-                </Shape>
-            </Transform>
+				<Transform DEF='NES_Body' translation='0 0 0'>
+					<Shape>
+						<Appearance>
+							<Material diffuseColor='0.75 0.75 0.75' />
+						</Appearance>
+						<Box size='12.5 5.5 1.7' />
+					</Shape>
+				</Transform>
 
-            <Transform DEF='Button_B' translation='2.2 -1 .9' rotation='1 0 0 -1.6'>
-                <Shape>
-                    <Appearance>
-                        <Material diffuseColor='1 0 0' />
-                    </Appearance>
-                    <Cylinder height='.2' radius='0.6' />
-                </Shape>
-            </Transform>
+				<Transform DEF='Button_B' translation='2.2 -1 .9' rotation='1 0 0 -1.6'>
+					<Shape>
+						<Appearance>
+							<Material diffuseColor='1 0 0' />
+						</Appearance>
+						<Cylinder height='.2' radius='0.6' />
+					</Shape>
+				</Transform>
 
-            <Transform id='Button_A' translation='4.0 -1 .9' rotation='1 0 0 -1.6'>
-                <Shape onclick="clickButton()">
-                        <Appearance>
-                            <Material diffuseColor='1 0 0' />
-                        </Appearance>
-                        <Cylinder height='.2' radius='0.6' />
-                   
-                </Shape>
-            </Transform>
+				<Transform id='Button_A' translation='4.0 -1 .9' rotation='1 0 0 -1.6'>
+					<Shape onclick="clickButton()">
+						<Appearance>
+							<Material diffuseColor='1 0 0' />
+						</Appearance>
+						<Cylinder height='.2' radius='0.6' />
 
-            <Transform DEF="LeftAndRightButton" translation="-4 -0.05 0.9" rotation="0.58 -0.58 -0.58 2.1">
-                <Shape>
-                    <Appearance>
-                        <Material diffuseColor='0 0 0' />
-                    </Appearance>
-                    <Box size='1.1 .2 3' />
-                </Shape>
-			</Transform>
+					</Shape>
+				</Transform>
 
-            <Transform DEF="UpAndDownButton" translation="-4 -0.05 0.9" rotation="0.0 0.7 0.7 3.14">
-                <Shape>
-                    <Appearance>
-                        <Material diffuseColor='0 0 0' />
-                    </Appearance>
-                    <Box size='1.1 .2 3' />
-                </Shape>
-			</Transform>
-			<timeSensor DEF="time" cycleInterval="2" loop="false"></timeSensor>
-			<PositionInterpolator DEF="move" key="0 0.5 1" keyValue="4.0 -1 .9  4.0 -1 .8  4.0 -1 .9"></PositionInterpolator>
-			<Route fromNode="time" fromField ="fraction_changed" toNode="move" toField="set_fraction"></Route>
-			<Route fromNode="move" fromField ="value_changed" toNode="Button_A" toField="translation"></Route>
+				<Transform DEF="LeftAndRightButton" translation="-4 -0.05 0.9" rotation="0.58 -0.58 -0.58 2.1">
+					<Shape>
+						<Appearance>
+							<Material diffuseColor='0 0 0' />
+						</Appearance>
+						<Box size='1.1 .2 3' />
+					</Shape>
+				</Transform>
 
-		</Group>
+				<Transform DEF="UpAndDownButton" translation="-4 -0.05 0.9" rotation="0.0 0.7 0.7 3.14">
+					<Shape>
+						<Appearance>
+							<Material diffuseColor='0 0 0' />
+						</Appearance>
+						<Box size='1.1 .2 3' />
+					</Shape>
+				</Transform>
+				<timeSensor DEF="time" cycleInterval="2" loop="true"></timeSensor>
+				<PositionInterpolator DEF="move" key="0 0.5 1" keyValue="4.0 -1 .9  4.0 -1 .8  4.0 -1 .9"></PositionInterpolator>
+				<Route fromNode="time" fromField="fraction_changed" toNode="move" toField="set_fraction"></Route>
+				<Route fromNode="move" fromField="value_changed" toNode="Button_A" toField="translation"></Route>
 
-        </Scene>
+			</Group>
+
+		</Scene>
 	</x3d>
-	
+
 	<button onclick="document.getElementById('front').setAttribute('set_bind','true');">Front </button>
 	<button onclick="document.getElementById('right').setAttribute('set_bind','true');">Right</button>
 	<button onclick="document.getElementById('left').setAttribute('set_bind','true');">Left</button>
