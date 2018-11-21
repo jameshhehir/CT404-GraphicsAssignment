@@ -1,18 +1,9 @@
 <html>
 
 <head>
-	<title>My first X3DOM page</title>
+	<title>CT404-Assignment</title>
 	<script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
-	<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'>
-	<script>
-		function clickButton() {
-			if (document.getElementById("Button_A").getAttribute('translation') == "4.0 -1 .9")
-				document.getElementById("Button_A").setAttribute('translation', '4.0 -1 0.8');
-			else
-				document.getElementById("Button_A").setAttribute('translation', '4.0 -1 .9');
-		}
-	</script>
-	</link>
+	<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
 
 </head>
 
@@ -82,58 +73,58 @@
 			</Group>
 
 			<Transform DEF="TV_Outer" translation="0 25 -24.6" rotation="0 0 0 -7.28">
-					<Shape>
-						<Appearance>
-							<Material diffuseColor= '0 0 0'>
+				<Shape>
+					<Appearance>
+						<Material diffuseColor='0 0 0'>
 
-						</Appearance>
-						<Box size='42 22 1.1' />
-					</Shape>
+					</Appearance>
+					<Box size='42 22 1.1' />
+				</Shape>
 			</Transform>
 
 			<Transform DEF="TV_Display" translation="0 25 -24.5" rotation="0 0 0 -7.28">
-					<Shape>
-						<Appearance>
-							<MovieTexture repeatS="false" repeatT="false" loop='true' url='videoplayback.ogv'></MovieTexture>
+				<Shape>
+					<Appearance>
+						<MovieTexture repeatS="false" repeatT="false" loop='true' url='videoplayback.ogv'></MovieTexture>
 
-						</Appearance>
-						<Box size='40 20 1' />
-					</Shape>
+					</Appearance>
+					<Box size='40 20 1' />
+				</Shape>
 			</Transform>
 			<Transform DEF="Back_Wall" translation="0 25 -25" rotation="0.0 0.7 0.7 3.14">
-					<Shape>
-						<Appearance>
-							<Material diffuseColor='0.9 0.9 1' />
-						</Appearance>
-						<Box size='100 0 80' />
-					</Shape>
+				<Shape>
+					<Appearance>
+						<Material diffuseColor='0.9 0.9 1' />
+					</Appearance>
+					<Box size='100 0 80' />
+				</Shape>
 			</Transform>
 
 			<Transform DEF="Floor" translation="0 -15 15" rotation="0.0 0.7 0.7 3.14">
-					<Shape>
-						<Appearance>
-								<Material diffuseColor='.6 .5 .2'/>
-						</Appearance>
-						<Box size='100 80 0' />
-					</Shape>
+				<Shape>
+					<Appearance>
+						<Material diffuseColor='.6 .5 .2' />
+					</Appearance>
+					<Box size='100 80 0' />
+				</Shape>
 			</Transform>
 
 			<Transform DEF="Right_Wall" translation="50 25 15" rotation="0.0 0.7 0.7 3.14">
-					<Shape>
-						<Appearance>
-								<Material diffuseColor='0.9 0.9 1'/>
-						</Appearance>
-						<Box size='0 80 80' />
-					</Shape>
+				<Shape>
+					<Appearance>
+						<Material diffuseColor='0.9 0.9 1' />
+					</Appearance>
+					<Box size='0 80 80' />
+				</Shape>
 			</Transform>
 
 			<Transform DEF="Right_Wall" translation="-50 25 15" rotation="0.0 0.7 0.7 3.14">
-					<Shape>
-						<Appearance>
-								<Material diffuseColor='0.9 0.9 1'/>
-						</Appearance>
-						<Box size='0 80 80' />
-					</Shape>
+				<Shape>
+					<Appearance>
+						<Material diffuseColor='0.9 0.9 1' />
+					</Appearance>
+					<Box size='0 80 80' />
+				</Shape>
 			</Transform>
 
 		</Scene>
