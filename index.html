@@ -22,9 +22,12 @@
     <p>
         This is an interactive NES Controller!
     </p>
-    <x3d width='1200px' height='800px'>
+    <x3d width='1000px' height='800px'>
         <Scene DEF='scene'>
-
+				<Viewpoint id="front" position="0 0 25" orientation="0 0 0 0" description="camera"></Viewpoint>
+				<Viewpoint id="left" position="-40 0 0" orientation="0 -1 0 2" description="camera"></Viewpoint>
+				<Viewpoint id="right" position="40 0 0" orientation="0 1 0 2" description="camera"></Viewpoint>
+			<Group>
             <Transform DEF='NES_Body' translation='0 0 0'>
                 <Shape>
                     <Appearance>
@@ -60,7 +63,7 @@
                     </Appearance>
                     <Box size='1.1 .2 3' />
                 </Shape>
-            </Transform>
+			</Transform>
 
             <Transform DEF="UpAndDownButton" translation="-4 -0.05 0.9" rotation="0.0 0.7 0.7 3.14">
                 <Shape>
@@ -69,10 +72,20 @@
                     </Appearance>
                     <Box size='1.1 .2 3' />
                 </Shape>
-            </Transform>
+			</Transform>
+			<timeSensor DEF="time" cycleInterval="2" loop="false"></timeSensor>
+			<PositionInterpolator DEF="move" key="0 0.5 1" keyValue="4.0 -1 .9  4.0 -1 .8  4.0 -1 .9"></PositionInterpolator>
+			<Route fromNode="time" fromField ="fraction_changed" toNode="move" toField="set_fraction"></Route>
+			<Route fromNode="move" fromField ="value_changed" toNode="Button_A" toField="translation"></Route>
+
+		</Group>
 
         </Scene>
-    </x3d>
+	</x3d>
+	
+	<button onclick="document.getElementById('front').setAttribute('set_bind','true');">Front </button>
+	<button onclick="document.getElementById('right').setAttribute('set_bind','true');">Right</button>
+	<button onclick="document.getElementById('left').setAttribute('set_bind','true');">Left</button>
 </body>
 
 </html>
